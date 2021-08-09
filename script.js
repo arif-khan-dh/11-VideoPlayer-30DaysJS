@@ -38,12 +38,13 @@ function handleRangeUpdate() {
 }
 function handleProgress() {
     const percent =  (video.currentTime / video.duration) * 100;
-    progressBar.style.flexBasis = `${percent}%`
+    progressBar.style.flexBasis = `${percent}%`;
 }
 
 function scrub(e) {
-    const scrubTime = e.clientX / progress.offsetWidth;
+    const scrubTime = e.layerX / progress.offsetWidth;
     video.currentTime = scrubTime * video.duration;
+    console.log(e);
 }
 
 let isFullscreen = false;
